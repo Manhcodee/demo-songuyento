@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In số nguyên tố</title>
+</head>
+<body>
+    <h1>In số nguyên tố</h1>
+    <button onclick="sonuyento()">In số nguyên tố</button>
+    <div id="output"></div>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function sonuyento() {
+            let numbers = parseInt(prompt("Nhập số lượng số nguyên tố cần in:"));
+            let count = 0;
+            let N = 2;
+            let output = "";
+            while (count < numbers) {
+                if (isPrime(N)) {
+                    output += N + " ";
+                    count++;
+                }
+                N++;
+            }
+            document.getElementById('output').textContent = output;
+        }
+    </script>
+</body>
+</html>
